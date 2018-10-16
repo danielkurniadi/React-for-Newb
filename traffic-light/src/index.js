@@ -11,16 +11,16 @@ class Traffic extends React.Component {
         super(props);
         this.state = { 
             seconds: 0,
-            red: {backgroundColor: "#282c34"},
-            yellow: {backgroundColor: "#282c34"},
-            green: {backgroundColor: "#282c34"}
+            red: "#ff4135",
+            yellow: "#282c34",
+            green: "#282c34"
         };
 
         this.map_color = {
-            red: {backgroundColor: "#ff4135"},
-            yellow: {backgroundColor: "#eca231"},
-            green: {backgroundColor: "#00d480"},
-            off: {backgroundColor: "#282c34"}
+            red:  "#ff4135",
+            yellow: "#eca231",
+            green: "#00d480",
+            off: "#282c34"
         };
 
     }
@@ -41,31 +41,33 @@ class Traffic extends React.Component {
     }
 
     updateTrafficLight(){
-        var remainder = this.state.seconds%10
-        switch (remainder) {
+        
+        switch (this.state.seconds%12) {
             case (0):
-                this.setState(state => ({
-                    red: {backgroundColor: this.map_color.red},
-                    yellow: {backgroundColor: this.map_color.off},
-                    green: {backgroundColor: this.map_color.off}
-                }));
+                this.setState({
+                    red: this.map_color.red,
+                    yellow: this.map_color.off,
+                    green: this.map_color.off
+                });
                 break;
-            case (3):
-                this.setState(state => ({
-                    red: {backgroundColor: this.map_color.off},
-                    yellow: {backgroundColor: this.map_color.yellow},
-                    green: {backgroundColor: this.map_color.off}
-                }));
+
+            case (4):
+                this.setState({
+                    red: this.map_color.off,
+                    yellow: this.map_color.yellow,
+                    green: this.map_color.off
+                });
                 break;
-            case (6):
-                this.setState(state => ({
-                    red: {backgroundColor: this.map_color.off},
-                    yellow: {backgroundColor: this.map_color.off},
-                    green: {backgroundColor: this.map_color.green}
-                }));
+
+            case (8):
+                this.setState({
+                    red: this.map_color.off,
+                    yellow: this.map_color.off,
+                    green: this.map_color.green
+                });
                 break;
+
             default:
-                console.log("None", remainder)
                 break;
         }
         
@@ -74,9 +76,9 @@ class Traffic extends React.Component {
     render() {
       return (
         <div className="traffic">
-        <div className= "circle" style = {this.state.red}></div>
-        <div className= "circle" style = {this.state.yellow}></div>
-        <div className= "circle" style = {this.state.green}>Seconds: {this.state.seconds%10}</div>
+        <div className= "circle" style = {{backgroundColor: this.state.red}}></div>
+        <div className= "circle" style = {{backgroundColor: this.state.yellow}}></div>
+        <div className= "circle" style = {{backgroundColor: this.state.green}}>Seconds: {this.state.seconds%10}</div>
         </div>
       );
     }
