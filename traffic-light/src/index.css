@@ -18,10 +18,12 @@ code {
   width : 100px;
   height: 100px;
   margin: 10px;
-  background-color: red;
 }
 
-.trafficBox{
-  background-color: 'black'; 
-  width: '110px';
+.traffic {
+  padding-top: 0px;
+  width: 'fit-content';
+  margin: auto auto auto auto;
+  background-color: #92afd7;
+  height: 70%;
 }
