@@ -1,5 +1,5 @@
 
-# React for Newbies <img src="">
+# React for Newbies <img src="traffic-light/public/favicon.ico">
  React is a JavaScript library for building user interfaces. This repository will contain my side-projects when I learn react.js framework.
 
 
